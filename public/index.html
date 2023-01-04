@@ -10,7 +10,7 @@
   <body>
     <div class="bg-slate-800 h-screen w-screen">
       <!-- app bar -->
-      <div class="h-12 flex items-center justify-center gap-x-4 bg-slate-700">
+      <div class="h-12 flex items-center justify-center gap-x-4 bg-slate-700 mb-6">
         <h1 class="text-xl font-bold text-slate-300">
           Inventory App using Tailwind & JS
         </h1>
@@ -20,6 +20,42 @@
         >
       </div>
       <!-- app content -->
+      <div class="container max-w-screen-sm mx-auto">
+        <!-- category form -->
+        <div>
+          <h2 class="text-xl text-slate-300 font-bold mb-2">Add New Category</h2>
+          <form class="bg-slate-700 p-4 rounded-lg flex flex-col gap-y-4">
+            <div>
+              <label for="category-title" class="block mb-1 text-slate-400"
+                >Title</label
+              >
+              <input
+                type="text"
+                name="category-title"
+                id="category-title"
+                class="bg-transparent rounded border border-slate-500 text-slate-400"
+              />
+            </div>
+            <div>
+              <label
+                for="category-description"
+                class="block mb-1 text-slate-400"
+                >Description</label
+              >
+              <textarea
+                name="category-description"
+                id="category-description"
+                class="bg-transparent rounded border border-slate-500 text-slate-400 resize-none w-full"
+              ></textarea>
+            </div>
+            <div class="flex items-center justify-between gap-x-4">
+              <button class="flex-1 border border-slate-400 text-slate-300 rounded-md py-2">Cancel</button>
+              <button class="flex-1 bg-slate-500 text-slate-200 rounded-md py-2">Add New Category</button>
+            </div>
+          </form>
+        </div>
+        <!-- product form -->
+      </div>
     </div>
   </body>
 </html>
