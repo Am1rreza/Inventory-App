@@ -680,6 +680,9 @@ select {
 .mb-2 {
   margin-bottom: 0.5rem;
 }
+.mb-4 {
+  margin-bottom: 1rem;
+}
 .block {
   display: block;
 }
@@ -694,6 +697,9 @@ select {
 }
 .h-7 {
   height: 1.75rem;
+}
+.h-full {
+  height: 100%;
 }
 .w-screen {
   width: 100vw;
