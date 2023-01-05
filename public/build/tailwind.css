@@ -707,12 +707,6 @@ select {
 .h-8 {
   height: 2rem;
 }
-.h-full {
-  height: 100%;
-}
-.min-h-screen {
-  min-height: 100vh;
-}
 .w-7 {
   width: 1.75rem;
 }
@@ -826,13 +820,13 @@ select {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
 }
-.py-0 {
-  padding-top: 0px;
-  padding-bottom: 0px;
-}
 .py-0\.5 {
   padding-top: 0.125rem;
   padding-bottom: 0.125rem;
+}
+.py-0 {
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 .px-2 {
   padding-left: 0.5rem;
@@ -868,10 +862,6 @@ select {
 .text-slate-500 {
   --tw-text-opacity: 1;
   color: rgb(100 116 139 / var(--tw-text-opacity));
-}
-.text-red-500 {
-  --tw-text-opacity: 1;
-  color: rgb(239 68 68 / var(--tw-text-opacity));
 }
 .text-red-400 {
   --tw-text-opacity: 1;
