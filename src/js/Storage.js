@@ -1,38 +1,3 @@
-const products = [
-  {
-    id: 1,
-    title: "React JS",
-    category: "frontend",
-    createdAt: "2023-01-05T09:09:04.156Z",
-  },
-  {
-    id: 2,
-    title: "Node JS",
-    category: "backend",
-    createdAt: "2023-01-05T09:09:36.804Z",
-  },
-  {
-    id: 3,
-    title: "Vue JS",
-    category: "frontend",
-    createdAt: "2023-01-05T09:10:07.418Z",
-  },
-];
-const categories = [
-  {
-    id: 1,
-    title: "frontend",
-    description: "frontend of app",
-    createdAt: "2023-01-05T08:23:36.397Z",
-  },
-  {
-    id: 2,
-    title: "backend",
-    description: "backend of app",
-    createdAt: "2023-01-05T08:23:52.736Z",
-  },
-];
-
 export default class Storage {
   static getAllCategories() {
     // get categories from localStorage

@@ -6,6 +6,7 @@ const quantity = document.getElementById("product-quantity");
 const category = document.getElementById("product-category");
 const searchInput = document.getElementById("search-input");
 const selectedSort = document.getElementById("sort-products");
+const totalQuantity = document.getElementById("total-quantity");
 
 class ProductView {
   constructor() {
@@ -41,6 +42,8 @@ class ProductView {
     this.category.value = "";
     this.title.value = "";
     this.quantity.value = "";
+    // update total quantity
+    this.showTotalQuantity();
   }
 
   setApp() {
@@ -118,6 +121,15 @@ class ProductView {
     this.setApp();
 
     this.createProductsList(this.products);
+    // update total quantity
+    this.showTotalQuantity();
+  }
+
+  showTotalQuantity() {
+    const products = Storage.getAllProducts();
+    const productsQuantities = products.map((p) => parseFloat(p.quantity));
+    const total = productsQuantities.reduce((acc, curr) => acc + curr, 0);
+    totalQuantity.innerText = total;
   }
 }
 
