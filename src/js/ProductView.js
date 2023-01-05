@@ -73,7 +73,7 @@ class ProductView {
           >
           <button
             data-id=${product.id}
-            class="border px-3 py-0.5 rounded-xl border-red-400 text-red-400 text-sm"
+            class="delete-product border px-3 py-0.5 rounded-xl border-red-400 text-red-400 text-sm"
           >
             delete
           </button>
@@ -83,6 +83,12 @@ class ProductView {
     // attach to DOM
     const productsDOM = document.querySelector(".products-list");
     productsDOM.innerHTML = result;
+    // get all of the buttons
+    const deleteBtns = [...document.querySelectorAll(".delete-product")];
+
+    deleteBtns.forEach((btn) => {
+      btn.addEventListener("click", (e) => this.deleteProduct(e));
+    });
   }
 
   searchProducts(e) {
@@ -100,6 +106,16 @@ class ProductView {
     const value = e.target.value;
 
     this.products = Storage.getAllProducts(value);
+
+    this.createProductsList(this.products);
+  }
+
+  deleteProduct(e) {
+    const id = e.target.dataset.id;
+
+    Storage.deleteProduct(id);
+
+    this.setApp();
 
     this.createProductsList(this.products);
   }
