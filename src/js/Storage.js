@@ -1,3 +1,5 @@
+import { data } from "autoprefixer";
+
 const categories = [
   {
     id: 1,
@@ -24,5 +26,25 @@ export default class Storage {
     });
 
     return sortedCategories;
+  }
+
+  static saveCategory(categoryToSave) {
+    const savedCategories = this.getAllCategories();
+    // find the category in savedCategories
+    const existedItem = savedCategories.find((c) => c.id == categoryToSave.id);
+
+    if (existedItem) {
+      // update the title & desc with new values
+      existedItem.title = categoryToSave.title;
+      existedItem.description = categoryToSave.description;
+    } else {
+      // set new date and id
+      categoryToSave.id = new Date().getTime();
+      categoryToSave.createdAt = new Date().toISOString();
+      // push the category to the original array
+      savedCategories.push(categoryToSave);
+    }
+    // save the category to storage
+    localStorage.setItem("categories", JSON.stringify(savedCategories));
   }
 }
