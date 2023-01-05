@@ -27,6 +27,10 @@ class CategoryView {
     this.categories = Storage.getAllCategories();
     // update DOM : update the select option
   }
+
+  setApp() {
+    this.categories = Storage.getAllCategories();
+  }
 }
 
 export default new CategoryView();
