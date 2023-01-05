@@ -5,11 +5,11 @@ const title = document.getElementById("product-title");
 const quantity = document.getElementById("product-quantity");
 const category = document.getElementById("product-category");
 const searchInput = document.getElementById("search-input");
+const selectedSort = document.getElementById("sort-products");
 
 class ProductView {
   constructor() {
     this.products = [];
-    this.searchResult = "";
     // variables
     this.title = title;
     this.quantity = quantity;
@@ -17,6 +17,7 @@ class ProductView {
     // event listeners
     addNewProductBtn.addEventListener("click", (e) => this.addNewProduct(e));
     searchInput.addEventListener("input", (e) => this.searchProducts(e));
+    selectedSort.addEventListener("change", (e) => this.sortProducts(e));
   }
 
   addNewProduct(e) {
@@ -93,6 +94,14 @@ class ProductView {
     );
 
     this.createProductsList(filteredProducts);
+  }
+
+  sortProducts(e) {
+    const value = e.target.value;
+
+    this.products = Storage.getAllProducts(value);
+
+    this.createProductsList(this.products);
   }
 }
 
