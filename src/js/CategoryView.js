@@ -3,6 +3,9 @@ import Storage from "./Storage.js";
 const title = document.querySelector("#category-title");
 const description = document.querySelector("#category-description");
 const addNewCategoryBtn = document.querySelector("#add-new-category");
+const toggleAddCategoryBtn = document.getElementById("toggle-add-category");
+const categoryWrapper = document.getElementById("category-wrapper");
+const cancelAddCategoryBtn = document.getElementById("cancel-add-category");
 
 class CategoryView {
   constructor() {
@@ -12,6 +15,12 @@ class CategoryView {
     this.description = description;
     // event listeners
     addNewCategoryBtn.addEventListener("click", (e) => this.addNewCategory(e));
+    toggleAddCategoryBtn.addEventListener("click", (e) =>
+      this.toggleAddCategory(e)
+    );
+    cancelAddCategoryBtn.addEventListener("click", (e) =>
+      this.cancelAddCategory(e)
+    );
   }
 
   addNewCategory(e) {
@@ -33,6 +42,9 @@ class CategoryView {
     // clear Inputs
     this.title.value = "";
     this.description.value = "";
+    // add category toggle button
+    categoryWrapper.classList.add("hidden");
+    toggleAddCategoryBtn.classList.remove("hidden");
   }
 
   setApp() {
@@ -55,6 +67,20 @@ class CategoryView {
     // attach the categoris to DOM
     const categoriesDOM = document.getElementById("product-category");
     categoriesDOM.innerHTML = result;
+  }
+
+  toggleAddCategory(e) {
+    categoryWrapper.classList.remove("hidden");
+    toggleAddCategoryBtn.classList.add("hidden");
+  }
+
+  cancelAddCategory(e) {
+    e.preventDefault();
+    categoryWrapper.classList.add("hidden");
+    toggleAddCategoryBtn.classList.remove("hidden");
+    // clear inputs
+    this.title.value = "";
+    this.description.value = "";
   }
 }
 
