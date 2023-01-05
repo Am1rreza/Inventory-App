@@ -1,5 +1,23 @@
-import { data } from "autoprefixer";
-
+const products = [
+  {
+    id: 1,
+    title: "React JS",
+    category: "frontend",
+    createdAt: "2023-01-05T09:09:04.156Z",
+  },
+  {
+    id: 2,
+    title: "Node JS",
+    category: "backend",
+    createdAt: "2023-01-05T09:09:36.804Z",
+  },
+  {
+    id: 3,
+    title: "Vue JS",
+    category: "frontend",
+    createdAt: "2023-01-05T09:10:07.418Z",
+  },
+];
 const categories = [
   {
     id: 1,
@@ -46,5 +64,16 @@ export default class Storage {
     }
     // save the category to storage
     localStorage.setItem("categories", JSON.stringify(savedCategories));
+  }
+
+  static getAllProducts() {
+    // get products from localStorage
+    const savedProducts = JSON.parse(localStorage.getItem("products")) || [];
+    // desending sort on products
+    const sortedProducts = savedProducts.sort((a, b) => {
+      return new Date(a.createdAt) > new Date(b.createdAt) ? -1 : 1;
+    });
+
+    return sortedProducts;
   }
 }
