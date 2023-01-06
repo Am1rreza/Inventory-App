@@ -689,9 +689,6 @@ select {
 .mb-0 {
   margin-bottom: 0px;
 }
-.mb-11 {
-  margin-bottom: 2.75rem;
-}
 .block {
   display: block;
 }
@@ -817,6 +814,10 @@ select {
 }
 .p-4 {
   padding: 1rem;
+}
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 .py-2 {
   padding-top: 0.5rem;
